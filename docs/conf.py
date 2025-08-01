@@ -18,6 +18,9 @@
 
 
 # -- Project information -----------------------------------------------------
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../src'))
 
 project = 'openfhe-python'
 copyright = '2023, Yuriy Polyakov, Ian Quah, Rener Oliveira, and Matthew Triplett.'
@@ -30,6 +33,13 @@ release = '0.8.0'
 
 
 # -- General configuration ---------------------------------------------------
+autosummary_generate = True
+autodoc_typehints = 'description'
+autodoc_default_options = {
+    'members': True,
+    'undoc-members': True,
+    'show-inheritance': True,
+}
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #
