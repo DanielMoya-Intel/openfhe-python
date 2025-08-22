@@ -44,9 +44,8 @@ RUN git clone https://github.com/openfheorg/openfhe-python.git \
     && make -j$(nproc) \
     && make install
 
-# Install openfhe as a pip package
-WORKDIR /openfhe-python
-RUN python3 setup.py sdist bdist_wheel && pip install dist/openfhe-*.whl
+# Set PYTHONPATH to include the installation directory of OpenFHE-Python
+ENV PYTHONPATH=/usr:${PYTHONPATH}
 
 # Expose the port JupyterLab will listen on
 EXPOSE 8888
